@@ -7,8 +7,7 @@ import './assets/css/App.scss';
 import HeaderComponent from "./components/Header/HeaderComponent";
 import EmailListing from "./components/Listing/EmailListing";
 import MailboxComponent from "./components/Mailbox/MailboxComponent";
-import NewMailForm from './components/NewMailForm';
-
+import MailContent from "./components/Mailbox/MailContent";
 const CLIENT_ID = '1088916242183-tib4nmp4ck66o5qqi2q4dlt0a7fao2qt.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDxs4opGT9OUOq0_6ZAb8SoZO00LsACiJM';
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
@@ -16,6 +15,7 @@ const SCOPES = 'https://mail.google.com/';
 
 const App = () => {
   const [gapiIsReady, setGapiIsReady] = useState(false)
+  const [selectedMail, setSelectedMail] = useState(null);
 
   useEffect(() => {
     let script = document.createElement("script");
@@ -44,17 +44,22 @@ const App = () => {
       });
     };
     document.body.appendChild(script);
-  }, [])
+  }, []);
 
-  let render = (gapiIsReady) ? <NewMailForm /> : 'Iniatiliaze';
+  let render = (gapiIsReady) ? <ConnectBtn /> : 'Iniatiliaze';
 
   return (
     <div className="App">
         <HeaderComponent/>
         <main className={"mainContainer"}>
           <MailboxComponent/>
-          <div className={'list-item'}>Hello</div>
-        {render}
+          {
+            gapiIsReady &&
+            <>
+              <EmailListing selectedMail={setSelectedMail} />
+              <MailContent selectedMail={selectedMail} />
+            </>
+          }
         </main>
     </div>
   );

@@ -32,6 +32,21 @@
   display: flex;
 }
 
+.emailListing {
+  flex: 1
+}
+
+.mailContainer {
+  flex: 2
+}
+ul.emailListing {
+  padding-left: 0;
+}
+
+.mainContainer {
+  display: flex;
+}
+
 .list-item {
   flex: 1;
 }

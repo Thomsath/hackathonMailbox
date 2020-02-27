@@ -5,9 +5,9 @@
 
     .baselineContainer {
       display: flex;
+      flex: 0.6;
       justify-content: center;
       align-items: center;
-      flex:0.6;
       background-color: black;
 
       .baseline {
@@ -21,6 +21,7 @@
     .secondHeaderContainer {
       flex: 1;
     }
+
     .searchIcon {
       padding: 29px 23px 0 20px;
       height: 25px;
@@ -36,9 +37,9 @@
 
     .accountBar {
       display: flex;
+      flex: 2;
       align-items: center;
       justify-content: space-between;
-      flex: 2;
       background-color: #000000;
     }
 

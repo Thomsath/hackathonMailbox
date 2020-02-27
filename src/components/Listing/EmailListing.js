@@ -8,16 +8,13 @@ export default class EmailListing extends Component {
         super();
         this.state = {
             messages: [],
-            messagesContent: []
+            messagesContent: [],
+            message: null
         };
     }
 
     componentDidMount() {
         this.fetchMessages()
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state.messages);
     }
 
     setMessage = (messages) => {
@@ -34,12 +31,18 @@ export default class EmailListing extends Component {
        listMessages('', this.setMessage);
     };
 
+    setMessageState = (message, subject, date) => {
+        message.title = subject;
+        message.date = date;
+        this.props.selectedMail(message);
+    };
+
     render() {
         return (
-            <ul>
+            <ul className={"emailListing"}>
                 {this.state.messages &&
                     this.state.messages.map((value, index) => {
-                        return <EmailListingItem message={value} />
+                        return <EmailListingItem index={index} message={value} customClickEvent={this.setMessageState}/>
                     })
                 }
             </ul>
