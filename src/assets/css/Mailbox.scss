@@ -1,0 +1,48 @@
+.mailBoxNavigation {
+  background-color: #212121;
+  padding-top: 43px;
+  width: 15.85%;
+  height: 800px;
+
+  .navLinkContainer {
+    list-style: none;
+    padding-bottom: 80px;
+
+    .navLinkItem {
+
+      .navLinkIcon {
+        color: #FFFFFF;
+
+      }
+
+      .navLink {
+        color: #EDEDED;
+        text-decoration: none;
+        font-size: 17px;
+        font-family: "Noah Regular";
+      }
+    }
+  }
+
+  .navHr {
+    display: block;
+    border-bottom: 1px solid #454545;
+  }
+
+
+  .archiveContainer, .labelContainer{
+    padding: 26px 0px 46px 40px;
+
+    .archiveTitle, .labelTitle{
+      text-transform: uppercase;
+      color: #777777;
+    }
+
+    .archiveLinkContainer, .labelLinkContainer{
+      list-style: none;
+      padding: 0;
+      color: #FFFFFF;
+    }
+  }
+
+}
