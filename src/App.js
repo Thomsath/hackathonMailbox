@@ -3,8 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import ConnectBtn from './components/ConnectBtn';
 import logo from './logo.svg';
-import './App.scss';
+import './assets/css/App.scss';
+import HeaderComponent from "./components/Header/HeaderComponent";
 import EmailListing from "./components/Listing/EmailListing";
+
 const CLIENT_ID = '1088916242183-tib4nmp4ck66o5qqi2q4dlt0a7fao2qt.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDxs4opGT9OUOq0_6ZAb8SoZO00LsACiJM';
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
@@ -46,18 +48,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        {render}
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {gapiIsReady &&
-          <EmailListing />
-        }
-
-          Learn React
-      </header>
+        <HeaderComponent/>
     </div>
   );
 }
