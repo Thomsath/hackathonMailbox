@@ -7,12 +7,14 @@ export default class EmailListingItem extends Component {
         this.state = {
           subject: "",
           date: "",
-            from: "",
+          from: "",
+            className: "",
           selected: false
         };
     }
 
     componentDidMount(prevProps, prevState, snapshot) {
+        console.log();
         this.props.message.payload.headers.map(item => {
             console.log(item);
             if(item['name'] === "Subject") {
@@ -30,11 +32,20 @@ export default class EmailListingItem extends Component {
                     from: item['value']
                 });
             };
+            this.setLabelIds(this.props.message.labelIds);
         });
     }
 
+    setLabelIds(ids) {
+        let className = "";
+        ids.map(id => {
+            className += " " + id;
+        });
+        this.setState({
+            className: className.toLowerCase()
+        })
+    }
     showFrom(from) {
-        console.log(from);
         const start = from.indexOf('<');
         const end = from.indexOf('>');
         return from.substring(0, start);
@@ -46,7 +57,7 @@ export default class EmailListingItem extends Component {
                 this.props.customClickEvent(this.props.message, this.state.subject, this.state.date, this.state.from);
                 this.setState({selected: true}) }}
                 data-index={this.props.index}
-                className={this.state.selected ? "emailItem itemSelected" : "emailItem item" }>
+                className={this.state.selected ? "emailItem itemSelected" : "emailItem item" + this.state.className }>
                 {this.state.subject &&
                     <>
                     <p className={"fromLabel"}> {this.showFrom(this.state.from)}</p>

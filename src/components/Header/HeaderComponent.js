@@ -19,7 +19,7 @@ export default class HeaderComponent extends Component {
                     <img src={search} className={"searchIcon"}></img>
                     <input type={"text"} className={"searchBar"} placeholder={"Search"}/>
                     <div className={"accountBar"}>
-                        <button className={"newMailButton"}>Nouveau</button>
+                        <button className={"newMailButton"} onClick={this.props.showNewMessage}>Nouveau</button>
                         <div className={"accountInfo"}>
                             <span className={"accountUsername"}>Jean Richard</span>
                             <span className={"accountLink"}>Mon compte</span>
