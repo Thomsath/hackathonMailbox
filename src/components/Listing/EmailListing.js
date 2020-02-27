@@ -31,7 +31,9 @@ export default class EmailListing extends Component {
        listMessages('', this.setMessage);
     };
 
-    setMessageState = (message) => {
+    setMessageState = (message, subject, date) => {
+        message.title = subject;
+        message.date = date;
         this.props.selectedMail(message);
     };
 

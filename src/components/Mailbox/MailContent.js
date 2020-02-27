@@ -12,7 +12,11 @@ export default class MailContent extends Component {
         return (
             <div className={"mailContainer"}>
                 {this.props.selectedMail &&
+                    <>
+                    <h3>{this.props.selectedMail.title}</h3>
+                        <p>{this.props.selectedMail.date}</p>
                 <p>{this.props.selectedMail.snippet}</p>
+                    </>
                 }
             </div>
         )
