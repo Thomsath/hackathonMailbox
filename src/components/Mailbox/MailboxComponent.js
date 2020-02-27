@@ -4,12 +4,31 @@ import '../../assets/css/Mailbox.scss';
 // import bin from '../../assets/icons/bin.png';
 // import cross from '../../assets/icons/cross.png';
 import mail from '../../assets/icons/mail.svg';
+import {listLabels} from "../../utils/gmailApi";
+import EmailListingItem from "../Listing/EmailListingItem";
 
 
 export default class MailboxComponent extends Component {
     constructor() {
         super();
+        this.state = {
+            labels: null
+        }
     }
+    componentDidMount() {
+        this.fetchLabels()
+    };
+
+    fetchLabels() {
+        listLabels(this.setLabel)
+    };
+
+    setLabel = (labels) => {
+        this.setState({
+            labels
+        });
+    };
+
     render() {
         return (
             <div className={"mailBoxNavigation"}>
@@ -47,9 +66,11 @@ export default class MailboxComponent extends Component {
                 <div className={"labelContainer"}>
                     <span className={"labelTitle"}>Labels</span>
                     <ul className={"labelLinkContainer"}>
-                        <li className={"labelLinkItem"}>Commandes</li>
-                        <li className={"labelLinkItem"}>Urgent</li>
-                        <li className={"labelLinkItem"}>Dossier_3</li>
+                        {this.state.labels &&
+                        this.state.labels.map((value, index) => {
+                            return <li className={"labelLinkItem"}>{value.name}</li>
+                        })
+                        }
                     </ul>
                 </div>
 

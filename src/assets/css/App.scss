@@ -41,6 +41,8 @@
 }
 ul.emailListing {
   padding-left: 0;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .mainContainer {
@@ -49,4 +51,7 @@ ul.emailListing {
 
 .list-item {
   flex: 1;
+}
+.itemSelected {
+  background-color: #E5E5E5;
 }

@@ -11,12 +11,24 @@ const NewMailForm = () => {
 
     const [object, setObject] = useState('');
     const [content, setContent] = useState('');
+    const [sendValue, setSendValue] = useState('Envoyer');
+    const [isDisabled, setIsDisabled] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        sendMessage(to, 'hackatong4@gmail', object, content)
+        sendMessage(to, 'hackatong4@gmail', object, content);
+    };
 
-    }
+    const setCurrentContent = (e) => {
+        if(e.length < 100) {
+            setSendValue("Votre nombre de caractère n'est pas suffisant");
+            setIsDisabled(true);
+        } else {
+            setSendValue("Envoyer");
+            setIsDisabled(false);
+        }
+        setContent(e);
+    };
 
     let blurClass = (toIsBlur) ? 'blurClass' : '';
     return (
@@ -30,8 +42,8 @@ const NewMailForm = () => {
                 <span>Objet : </span>
                 <input type="text" value={object} onChange={(e) => setObject(e.target.value)} />
             </label>
-            <textarea type="text" value={content} onChange={(e) => setContent(e.target.value)} />
-            <input type="submit" value="Envoyer" />
+            <textarea type="text" value={content} onChange={(e) => setCurrentContent(e.target.value)} />
+            <input type="submit" value={sendValue} disabled={isDisabled} />
         </form>
     )
 }

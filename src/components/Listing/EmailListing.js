@@ -35,6 +35,7 @@ export default class EmailListing extends Component {
         message.title = subject;
         message.date = date;
         this.props.selectedMail(message);
+        this.props.setShowNewMessage();
     };
 
     render() {
