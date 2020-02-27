@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Noah Bold';
+  src: local('Noah'), url('../../assets/fonts/Noah/Noah-Bold.woff') format('woff');
+
+}
+
+@font-face {
+  font-family: 'Noah Bold Italic';
+  src: local('Noah'), url('../../assets/fonts/Noah/Noah-BoldItalic.woff') format('woff');
+
+}
+
+
+@font-face {
+  font-family: 'Noah Regular';
+  src: local('Noah'), url('../../assets/fonts/Noah/Noah-Regular.woff') format('woff');
+
+}
+
+
+@font-face {
+  font-family: 'Noah Regular Italic';
+  src: local('Noah'), url('../../assets/fonts/Noah/Noah-RegularItalic.woff') format('woff');
+
+}
+
+*{
+  font-family: "Noah Regular";
+}
