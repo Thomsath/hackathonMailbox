@@ -1,6 +1,6 @@
 /* global gapi */
 
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ConnectBtn from './components/ConnectBtn';
 import logo from './logo.svg';
 import './assets/css/App.scss';
@@ -9,14 +9,16 @@ import EmailListing from "./components/Listing/EmailListing";
 import MailboxComponent from "./components/Mailbox/MailboxComponent";
 import LoginComponent from "./components/Login/LoginComponent";
 import MailContent from "./components/Mailbox/MailContent";
+import NewMailForm from "./components/NewMailForm";
 const CLIENT_ID = '1088916242183-tib4nmp4ck66o5qqi2q4dlt0a7fao2qt.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDxs4opGT9OUOq0_6ZAb8SoZO00LsACiJM';
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
 const SCOPES = 'https://mail.google.com/';
 
 const App = () => {
-  const [gapiIsReady, setGapiIsReady] = useState(false)
-  const [selectedMail, setSelectedMail] = useState(null);
+    const [gapiIsReady, setGapiIsReady] = useState(false)
+    const [selectedMail, setSelectedMail] = useState(null);
+    const [showNewMessage, setShowNewMessage] = useState(false);
 
   useEffect(() => {
     let script = document.createElement("script");
@@ -49,24 +51,37 @@ const App = () => {
 
   let render = (gapiIsReady) ? <ConnectBtn /> : 'Iniatiliaze';
 
-  return (
-    <div className="App">
-        {/*<HeaderComponent/>*/}
-      <LoginComponent/>
+    const onClickNewMessage = () => {
+        setShowNewMessage(true);
+    };
 
-        <HeaderComponent/>
-        <main className={"mainContainer"}>
-          <MailboxComponent/>
-          {
-            gapiIsReady &&
-            <>
-              <EmailListing selectedMail={setSelectedMail} />
-              <MailContent selectedMail={selectedMail} />
-            </>
-          }
-        </main>
-    </div>
-  );
+    const onClickEmailListingInput = () => {
+        setShowNewMessage(false);
+    };
+
+    return (
+        <div className="App">
+          <LoginComponent/>
+            {
+                gapiIsReady &&
+                <>
+                    <HeaderComponent showNewMessage={onClickNewMessage}/>
+                    <main className={"mainContainer"}>
+                        <MailboxComponent/>
+
+                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}/>
+                        {showNewMessage &&
+                        <NewMailForm/>
+                        }
+                        {!showNewMessage &&
+                        <MailContent selectedMail={selectedMail}/>
+                        }
+                        }
+                    </main>
+                </>
+            }
+        </div>
+    );
 }
 
 export default App;

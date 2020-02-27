@@ -31,10 +31,12 @@ export default class EmailListing extends Component {
        listMessages('', this.setMessage);
     };
 
-    setMessageState = (message, subject, date) => {
+    setMessageState = (message, subject, date, from) => {
         message.title = subject;
         message.date = date;
+        message.from = from;
         this.props.selectedMail(message);
+        this.props.setShowNewMessage();
     };
 
     render() {
