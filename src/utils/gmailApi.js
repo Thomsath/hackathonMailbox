@@ -42,3 +42,31 @@ export const listMessages = (query, setMessages) => {
 
 
 
+
+export const sendMessage = (to, from, subject, message) => {
+    const raw = makeBody(to, from, subject, message);
+    let resource = { raw };
+    var request = gapi.client.gmail.users.messages.send({
+        userId: 'me',
+        resource
+    });
+    request.execute(() => console.log('toto'));
+}
+
+const makeBody = (to, from, subject, message, threadId = false) => {
+    var btoa = require('btoa');
+    const threadIdLine = threadId ? "References: " + threadId + "\n" : "";
+    let str = ["Content-Type: text/plain; charset=\"UTF-8\"\n",
+        "MIME-Version: 1.0\n",
+        threadIdLine,
+        "Content-Transfer-Encoding: 7bit\n",
+        "to: ", to, "\n",
+        "from: ", from, "\n",
+        "subject: ", subject, "\n\n",
+        message
+    ].join('');
+    return btoa(str);
+}
+
+
+
