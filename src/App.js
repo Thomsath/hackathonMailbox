@@ -51,7 +51,8 @@ const App = () => {
   return (
     <div className="App">
         <HeaderComponent/>
-        <main className={"mainContainer"}><MailboxComponent/>
+        <main className={"mainContainer"}>
+          <MailboxComponent/>
           {
             gapiIsReady &&
             <>

@@ -17,8 +17,8 @@ export default class HeaderComponent extends Component {
                         <span className={"baseline"}>Tidy</span>
                     </div>
                     <div className={"secondHeaderContainer"}>
-                        <img src={search} className={"searchIcon"}></img>
-                        <input type={"text"} className={"searchBar"} placeholder={"Search"} />
+                    <img src={search} className={"searchIcon"}></img>
+                        <input type={"text"} className={"searchBar"} placeholder={"Search"}/>
                     </div>
                     <div className={"accountBar"}>
                         <button className={"newMailButton"}>Nouveau</button>

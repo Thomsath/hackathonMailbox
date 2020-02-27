@@ -37,7 +37,7 @@ export default class EmailListing extends Component {
 
     render() {
         return (
-            <ul>
+            <ul className={"emailListing"}>
                 {this.state.messages &&
                     this.state.messages.map((value, index) => {
                         return <EmailListingItem index={index} message={value} customClickEvent={this.setMessageState}/>

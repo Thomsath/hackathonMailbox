@@ -10,11 +10,11 @@ export default class MailContent extends Component {
         console.log('ko');
         console.log(this.props.selectedMail);
         return (
-            <>
+            <div className={"mailContainer"}>
                 {this.props.selectedMail &&
                 <p>{this.props.selectedMail.snippet}</p>
                 }
-            </>
+            </div>
         )
     }
 }
