@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ConnectBtn from './components/ConnectBtn';
 import logo from './logo.svg';
 import './App.scss';
-
-
-
+import EmailListing from "./components/Listing/EmailListing";
 const CLIENT_ID = '1088916242183-tib4nmp4ck66o5qqi2q4dlt0a7fao2qt.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDxs4opGT9OUOq0_6ZAb8SoZO00LsACiJM';
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
@@ -54,14 +52,11 @@ const App = () => {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        {gapiIsReady &&
+          <EmailListing />
+        }
+
           Learn React
-        </a>
       </header>
     </div>
   );

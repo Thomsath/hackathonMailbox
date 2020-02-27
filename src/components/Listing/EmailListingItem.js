@@ -7,9 +7,10 @@ export default class EmailListingItem extends Component {
     }
 
     render() {
+        console.log(this.props.message.payload.headers);
         return (
             <ul>
-
+                {this.props.message.snippet}
             </ul>
         );
     }
