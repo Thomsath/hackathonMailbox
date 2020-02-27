@@ -1,25 +1,44 @@
 .mailBoxNavigation {
   background-color: #212121;
-  padding-top: 43px;
-  height: 800px;
   flex: 0.6;
+  font-size: 14px;
+  li {
+    cursor: pointer;
+  }
 
   .navLinkContainer {
     list-style: none;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
+    width: 100%;
+    padding-left: 0px;
 
+    .navLinkItem:first-child {
+      > .navLink {
+        background:#3DE2B6;
+        img {
+          margin-top: 10px;
+        }
+    }
+    }
     .navLinkItem {
-
+      margin-top: 20px;
       .navLinkIcon {
         color: #FFFFFF;
-
       }
 
       .navLink {
         color: #EDEDED;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 14px;
         font-family: "Noah Regular";
+        display: flex;
+        align-items: center;
+        img {
+          margin-left: 30px;
+          margin-right: 10px;
+    width: 25px;
+
+        }
       }
     }
   }
@@ -29,9 +48,30 @@
     border-bottom: 1px solid #454545;
   }
 
+  .labelContainer {
+    position: relative;
+    overflow: hidden;
+   > div {
+      top: 300px;
+    left: 15px;
+    right: 15px;
+    bottom: 22px;
+    position: absolute;
+    background: red;
+    text-align: center;
+    color: white;
+    span {
+      text-transform: uppercase;
+    display: block;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 25px;
+    }
+    }
+  }
 
   .archiveContainer, .labelContainer{
-    padding: 26px 0px 46px 40px;
+    padding: 26px 0px 20px 40px;
 
     .archiveTitle, .labelTitle{
       text-transform: uppercase;
@@ -42,6 +82,33 @@
       list-style: none;
       padding: 0;
       color: #FFFFFF;
+      .archiveLinkItem, .labelLinkItem {
+        display: flex;
+        line-height: 40px;
+        align-items: center;
+        align-content: center;
+        div {
+          margin-right: 9px;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+        }
+      }
+      .labelLinkItem:nth-child(1) {
+         div {
+          background: red; 
+         }
+      }
+      .labelLinkItem:nth-child(2) {
+        div {
+         background: blue; 
+        }
+     }
+     .labelLinkItem:nth-child(3) {
+      div {
+       background: green; 
+      }
+   }
     }
   }
 

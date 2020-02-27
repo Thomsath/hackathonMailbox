@@ -14,7 +14,6 @@ export default class EmailListingItem extends Component {
 
     componentDidMount(prevProps, prevState, snapshot) {
         this.props.message.payload.headers.map(item => {
-            console.log(item);
             if(item['name'] === "Subject") {
                 this.setState({
                     subject: item['value']

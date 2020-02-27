@@ -1,6 +1,6 @@
 /* global gapi */
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ConnectBtn from './components/ConnectBtn';
 import logo from './logo.svg';
 import './assets/css/App.scss';
@@ -16,9 +16,11 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 const SCOPES = 'https://mail.google.com/';
 
 const App = () => {
-    const [gapiIsReady, setGapiIsReady] = useState(false)
-    const [selectedMail, setSelectedMail] = useState(null);
-    const [showNewMessage, setShowNewMessage] = useState(false);
+  const [gapiIsReady, setGapiIsReady] = useState(false)
+  const [selectedMail, setSelectedMail] = useState(null);
+  const [showNewMessage, setShowNewMessage] = useState(false);
+  const [nbMessages, setNbMessages] = useState(0)
+
 
   useEffect(() => {
     let script = document.createElement("script");
@@ -49,39 +51,37 @@ const App = () => {
     document.body.appendChild(script);
   }, []);
 
-  let render = (gapiIsReady) ? <ConnectBtn /> : 'Iniatiliaze';
+  const onClickNewMessage = () => {
+    setShowNewMessage(true);
+  };
 
-    const onClickNewMessage = () => {
-        setShowNewMessage(true);
-    };
+  const onClickEmailListingInput = () => {
+    setShowNewMessage(false);
+  };
 
-    const onClickEmailListingInput = () => {
-        setShowNewMessage(false);
-    };
+  return (
+    <div className="App">
+      {/* <LoginComponent /> */}
+      {
+        gapiIsReady &&
+        <>
+          <HeaderComponent showNewMessage={onClickNewMessage} nbMessages={nbMessages} />
+          <main className={"mainContainer"}>
+            <MailboxComponent />
 
-    return (
-        <div className="App">
-          <LoginComponent/>
-            {
-                gapiIsReady &&
-                <>
-                    <HeaderComponent showNewMessage={onClickNewMessage}/>
-                    <main className={"mainContainer"}>
-                        <MailboxComponent/>
-
-                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}/>
-                        {showNewMessage &&
-                        <NewMailForm/>
-                        }
-                        {!showNewMessage &&
-                        <MailContent selectedMail={selectedMail}/>
-                        }
-                        }
-                    </main>
-                </>
+            <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput} setNbMessages={setNbMessages} />
+            {showNewMessage &&
+              <NewMailForm />
             }
-        </div>
-    );
+            {!showNewMessage &&
+              <MailContent selectedMail={selectedMail} />
+            }
+            }
+                    </main>
+        </>
+      }
+    </div>
+  );
 }
 
 export default App;

@@ -18,6 +18,9 @@ export default class EmailListing extends Component {
     }
 
     setMessage = (messages) => {
+        if (messages.length > 0) {
+            this.props.setNbMessages(messages.length)
+        }
         this.setState({
             messages
         })
