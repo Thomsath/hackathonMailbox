@@ -68,7 +68,12 @@ export default class MailboxComponent extends Component {
                     <ul className={"labelLinkContainer"}>
                         {this.state.labels &&
                         this.state.labels.map((value, index) => {
-                            return <li className={"labelLinkItem"}>{value.name}</li>
+                            return (
+                                <>
+                                <li className={"labelLinkItem"}>{value.name}</li>
+                                </>
+                                )
+
                         })
                         }
                     </ul>
