@@ -7,11 +7,9 @@ import mail from '../../assets/icons/mail.svg';
 
 
 export default class MailboxComponent extends Component {
-
     constructor() {
         super();
     }
-
     render() {
         return (
             <div className={"mailBoxNavigation"}>
@@ -52,7 +50,6 @@ export default class MailboxComponent extends Component {
                         <li className={"labelLinkItem"}>Commandes</li>
                         <li className={"labelLinkItem"}>Urgent</li>
                         <li className={"labelLinkItem"}>Dossier_3</li>
-
                     </ul>
                 </div>
 

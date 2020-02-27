@@ -7,6 +7,7 @@ import './assets/css/App.scss';
 import HeaderComponent from "./components/Header/HeaderComponent";
 import EmailListing from "./components/Listing/EmailListing";
 import MailboxComponent from "./components/Mailbox/MailboxComponent";
+import NewMailForm from './components/NewMailForm';
 
 const CLIENT_ID = '1088916242183-tib4nmp4ck66o5qqi2q4dlt0a7fao2qt.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyDxs4opGT9OUOq0_6ZAb8SoZO00LsACiJM';
@@ -45,12 +46,15 @@ const App = () => {
     document.body.appendChild(script);
   }, [])
 
-  let render = (gapiIsReady) ? <ConnectBtn /> : 'Iniatiliaze';
+  let render = (gapiIsReady) ? <NewMailForm /> : 'Iniatiliaze';
 
   return (
     <div className="App">
         <HeaderComponent/>
-        <main className={"mainContainer"}><MailboxComponent/>
+        <main className={"mainContainer"}>
+          <MailboxComponent/>
+          <div className={'list-item'}>Hello</div>
+        {render}
         </main>
     </div>
   );

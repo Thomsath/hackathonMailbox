@@ -1,4 +1,4 @@
-import React, {Component, StyleSheet} from 'react';
+import React, { Component, StyleSheet } from 'react';
 import '../../assets/css/Header.scss';
 import search from '../../assets/icons/search.png';
 
@@ -16,8 +16,10 @@ export default class HeaderComponent extends Component {
                     <div className={"baselineContainer"}>
                         <span className={"baseline"}>Tidy</span>
                     </div>
-                    <img src={search} className={"searchIcon"}></img>
-                    <input type={"text"} className={"searchBar"} placeholder={"Search"}/>
+                    <div className={"secondHeaderContainer"}>
+                        <img src={search} className={"searchIcon"}></img>
+                        <input type={"text"} className={"searchBar"} placeholder={"Search"} />
+                    </div>
                     <div className={"accountBar"}>
                         <button className={"newMailButton"}>Nouveau</button>
                         <div className={"accountInfo"}>
