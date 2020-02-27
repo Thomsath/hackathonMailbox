@@ -4,14 +4,30 @@ export default class EmailListingItem extends Component {
 
     constructor() {
         super();
+        this.state = {
+          subject: ""
+        };
+    }
+
+    componentDidMount(prevProps, prevState, snapshot) {
+        console.log(this.props.message)
+        this.props.message.payload.headers.map(item => {
+            if(item['name'] === "Subject") {
+                this.setState({
+                    subject: item['value']
+                });
+            }
+        });
     }
 
     render() {
-        console.log(this.props.message.payload.headers);
         return (
-            <ul>
-                {this.props.message.snippet}
-            </ul>
+            <li onClick={() => this.props.customClickEvent(this.props.message)} data-index={this.props.index}>
+                {this.state.subject &&
+                    <h3>{this.state.subject}</h3>
+                }
+                <p>{this.props.message.snippet}</p>
+            </li>
         );
     }
 }
