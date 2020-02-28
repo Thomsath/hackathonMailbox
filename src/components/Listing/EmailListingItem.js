@@ -50,19 +50,22 @@ export default class EmailListingItem extends Component {
         return from.substring(0, start);
     }
 
+    showResumee(snippet) {
+        return snippet.substring(0, 60) + '...';
+    }
     render() {
         return (
             <li onClick={() => {
                 this.props.customClickEvent(this.props.message, this.state.subject, this.state.date, this.state.from);
                 this.setState({selected: true}) }}
                 data-index={this.props.index}
-                className={this.state.selected ? "emailItem itemSelected" : "emailItem item" + this.state.className }>
+                className={this.state.selected ? "emailItem item" : "emailItem item" + this.state.className }>
                 {this.state.subject &&
                     <>
                     <p className={"fromLabel"}> {this.showFrom(this.state.from)}</p>
                    <h3 className={"bold subjectLabel"}> <div className={'red'}></div>{this.state.subject}</h3></>
                 }
-                <p>{this.props.message.snippet}</p>
+                <p>{this.showResumee(this.props.message.snippet)}</p>
             </li>
         );
     }
