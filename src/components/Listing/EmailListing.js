@@ -33,11 +33,13 @@ export default class EmailListing extends Component {
 
     setMessage = (messages) => {
         if (messages.length > 0) {
-            this.props.setNbMessages(messages.length)
+            const nbMessages = messages.filter(message => message.labelIds[0] !== 'SENT');
+            this.props.setNbMessages(nbMessages.length);
         }
         this.setState({
             messages
-        })
+        });
+        console.log(this.state.messages);
     };
 
     setMessageContent = (oldState, messagesContent) => {

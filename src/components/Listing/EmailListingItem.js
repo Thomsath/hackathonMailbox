@@ -29,8 +29,7 @@ export default class EmailListingItem extends Component {
                 this.setState({
                     from: item['value']
                 });
-            }
-            ;
+            };
             this.setLabelIds(this.props.message.labelIds);
         });
     }

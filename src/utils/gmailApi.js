@@ -17,7 +17,14 @@ export const listLabels = (setLabels) => {
     });
 };
 
-
+export const deleteMessage = (messageId) => {
+    var request = gapi.client.gmail.users.messages.delete({
+        'userId': 'me',
+        'id': messageId
+    });
+    request.execute(
+        function(resp) { console.log(resp)});
+}
 export const listMessages = (query, setMessages) => {
     gapi.client.gmail.users.messages.list({
         userId: USER_ID,

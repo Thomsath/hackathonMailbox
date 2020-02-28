@@ -63,7 +63,7 @@ const App = () => {
         setShowNewMessage(false);
     };
 
-    /*  if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>*/
+    if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>
 
     return (
         <div className="App">
