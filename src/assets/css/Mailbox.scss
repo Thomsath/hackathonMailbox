@@ -16,8 +16,12 @@
     .navLinkItem:first-child {
       > .navLink {
         background:#3DE2B6;
+        color: black;
         img {
           margin-top: 10px;
+        }
+        span {
+          margin-left: 15px;
         }
     }
     }

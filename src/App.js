@@ -71,7 +71,7 @@ const App = () => {
         <>
           <HeaderComponent showNewMessage={onClickNewMessage} nbMessages={nbMessages} />
           <main className={"mainContainer"}>
-            <MailboxComponent />
+            <MailboxComponent nbMessages={nbMessages}/>
 
             <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput} setNbMessages={setNbMessages} />
             {showNewMessage &&

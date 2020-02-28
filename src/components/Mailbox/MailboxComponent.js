@@ -53,7 +53,7 @@ export default class MailboxComponent extends Component {
             <div className={"mailBoxNavigation"}>
                 <ul className={"navLinkContainer"}>
                     <li className={"navLinkItem"}>
-                        <a href={"#"} className={"navLink"}><img src={card} /> Boite de réception</a>
+        <a href={"#"} className={"navLink"}><img src={card} /> Boite de réception   <span> {this.props.nbMessages}</span></a>
                     </li>
                     <li className={"navLinkItem"}>
                         <i className="fas fa-external-link-alt navLinkIcon"></i>
