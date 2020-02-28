@@ -76,7 +76,7 @@ const App = () => {
           <main className={"mainContainer"}>
             <MailboxComponent nbMessages={nbMessages}/>
 
-                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}/>
+                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput} setNbMessages={setNbMessages}/>
                         {showNewMessage &&
                         <NewMailForm/>
                         }
