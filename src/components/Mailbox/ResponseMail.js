@@ -21,7 +21,7 @@ const ResponseMail = () => {
 
     const setCurrentContent = (e) => {
         if(e.length < 100) {
-            setSendValue("Votre nombre de caractère n'est pas suffisant");
+            setSendValue("Votre nombre de caractères n'est pas suffisant");
             setIsDisabled(true);
         } else {
             setSendValue("Envoyer");

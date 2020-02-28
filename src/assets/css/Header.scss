@@ -13,7 +13,7 @@
 height: 10vh;
 
   .headerContainer {
-    height: 100px;
+    height: 95px;
     display: flex;
 
     .baselineContainer {
@@ -33,6 +33,7 @@ height: 10vh;
 
     .secondHeaderContainer {
       flex: 1;
+      display: flex;
     }
 
     .searchIcon {
