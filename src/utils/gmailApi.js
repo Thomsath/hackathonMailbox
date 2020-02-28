@@ -23,7 +23,9 @@ export const deleteMessage = (messageId) => {
         'id': messageId
     });
     request.execute(
-        function(resp) { console.log(resp)});
+        function (resp) {
+            console.log(resp)
+        });
 }
 export const listMessages = (query, setMessages) => {
     gapi.client.gmail.users.messages.list({
@@ -32,15 +34,16 @@ export const listMessages = (query, setMessages) => {
     }).then((response) => {
         let messagesContent = [];
         response.result.messages.map((item, index, data) => {
-            gapi.client.gmail.users.messages.get({
+            setTimeout(() => (gapi.client.gmail.users.messages.get({
                 'userId': USER_ID,
                 'id': item.id
             }).then((response) => {
                 messagesContent = [...messagesContent, response.result];
-                if(data.length === index + 1) {
+                if (data.length === index + 1) {
                     setMessages(messagesContent);
                 }
-            });
+            })), 1000)
+
 
         });
 
@@ -48,11 +51,9 @@ export const listMessages = (query, setMessages) => {
 };
 
 
-
-
 export const sendMessage = (to, from, subject, message) => {
     const raw = makeBody(to, from, subject, message);
-    let resource = { raw };
+    let resource = {raw};
     var request = gapi.client.gmail.users.messages.send({
         userId: 'me',
         resource

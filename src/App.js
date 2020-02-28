@@ -40,7 +40,7 @@ const App = () => {
                     }).then(() => {
                         setGapiIsReady(true)
                         if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
-                            console.log('connected')
+                            setIsSignin(true)
                         } else {
                             console.log('disconnected')
                         }

@@ -9,6 +9,8 @@ export default class MailContent extends Component {
     }
 
     deleteMessage(messageId) {
+        console.log(messageId);
+        return;
         deleteMessage(messageId)
     };
 
