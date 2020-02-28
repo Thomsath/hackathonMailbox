@@ -16,8 +16,8 @@ export default class ListingFilter extends Component {
             <div className={"searchScroll"}>
                 <div className={"containerSearchItem"}>
                     {this.props.labels &&
-                    this.props.labels.map(label => {
-                        return <span className={this.state.isSelected ? "searchItem selected" : "searchItem"} onClick={this.handleClick}>{label.name}</span>
+                    this.props.labels.map((label, index) => {
+                        return <span className={index === 0 ? "searchItem selected" : "searchItem"} onClick={this.handleClick}>{label.name}</span>
                     })
                     }
                 </div>

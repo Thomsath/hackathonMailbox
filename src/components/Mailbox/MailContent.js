@@ -1,4 +1,4 @@
-import React, {Component, StyleSheet} from 'react';
+import React, {Component} from 'react';
 import {deleteMessage, listMessages} from './../../utils/gmailApi';
 import ResponseMail from "./../Mailbox/ResponseMail";
 
@@ -9,9 +9,8 @@ export default class MailContent extends Component {
     }
 
     deleteMessage(messageId) {
-        console.log(messageId);
-        return;
-        deleteMessage(messageId)
+        deleteMessage(messageId);
+        this.props.setDeletedMessage(messageId);
     };
 
     render() {
@@ -23,7 +22,7 @@ export default class MailContent extends Component {
                     <h2 className={"mailTitle bold"}>{this.props.selectedMail.title}</h2>
                     <p className={"mailContent"}>{this.props.selectedMail.date}</p>
                     <p className={"mailContent snippet"}>{this.props.selectedMail.snippet}</p>
-                    <button onClick={() => this.deleteMessage(this.props.selectedMail.id)}>fjpods</button>
+                    <button onClick={() => this.deleteMessage(this.props.selectedMail.id)}>Delete</button>
                     <ResponseMail/>
                 </div>
                 }

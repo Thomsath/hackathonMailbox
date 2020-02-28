@@ -22,7 +22,8 @@ const App = () => {
     const [showNewMessage, setShowNewMessage] = useState(false);
     const [nbMessages, setNbMessages] = useState(0)
     const [isSignin, setIsSignin] = useState(false)
-
+    const [isSuccessMessageShow, setIsSuccessMessageShow] = useState(false);
+    const [deletedMessage, setDeletedMessage] = useState('');
 
     useEffect(() => {
         let script = document.createElement("script");
@@ -61,6 +62,11 @@ const App = () => {
 
     const onClickEmailListingInput = () => {
         setShowNewMessage(false);
+        setIsSuccessMessageShow(false);
+    };
+
+    const setSuccessMessage = () => {
+       setIsSuccessMessageShow(true);
     };
 
     if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>
@@ -75,13 +81,21 @@ const App = () => {
                     <main className={"mainContainer"}>
                         <MailboxComponent nbMessages={nbMessages}/>
 
-                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}
+                        <EmailListing deletedMessage={deletedMessage} selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}
                                       setNbMessages={setNbMessages}/>
                         {showNewMessage &&
-                            <NewMailForm onClickNewMail={onClickEmailListingInput}/>
+                            <NewMailForm onClickNewMail={onClickEmailListingInput} onSend={setSuccessMessage}/>
+                        }
+                        {isSuccessMessageShow &&
+                            <div className={"successMessageContainer"}>
+                                <div className={"successCard"}>
+                                    <p className={"successMessage"}>Votre message a bien été envoyé !</p>
+                                </div>
+                            </div>
                         }
                         {!showNewMessage &&
-                        <MailContent selectedMail={selectedMail}/>
+                            !isSuccessMessageShow &&
+                                <MailContent selectedMail={selectedMail} setDeletedMessage={setDeletedMessage}/>
                         }
                         }
                     </main>

@@ -39,7 +39,6 @@ export default class EmailListing extends Component {
         this.setState({
             messages
         });
-        console.log(this.state.messages);
     };
 
     setMessageContent = (oldState, messagesContent) => {
@@ -80,7 +79,6 @@ export default class EmailListing extends Component {
                     this.state.messages.map((value, index) => {
                         return <EmailListingItem index={index}
                          message={value}
-
                          customClickEvent={this.setMessageState}
                          />
                     })

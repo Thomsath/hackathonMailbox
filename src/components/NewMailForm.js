@@ -4,7 +4,7 @@ import './../assets/css/NewMailForm.scss';
 import close from './../assets/icons/close-512.png';
 
 
-const NewMailForm = ({onClickNewMail}) => {
+const NewMailForm = ({onClickNewMail, onSend}) => {
     const [to, setTo] = useState('');
     const [toIsBlur, setToIsBlur] = useState(false);
 
@@ -17,7 +17,8 @@ const NewMailForm = ({onClickNewMail}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         sendMessage(to, 'hackatong4@gmail', object, content + "\n \n- Envoyé avec TIDY");
-        onClickNewMail()
+        onClickNewMail();
+        onSend();
     };
 
     const setCurrentContent = (e) => {
