@@ -1,6 +1,6 @@
 /* global gapi */
 
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ConnectBtn from './components/ConnectBtn';
 import logo from './logo.svg';
 import './assets/css/App.scss';
@@ -17,12 +17,11 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/r
 const SCOPES = 'https://mail.google.com/';
 
 const App = () => {
-  const [gapiIsReady, setGapiIsReady] = useState(false)
-  const [selectedMail, setSelectedMail] = useState(null);
-  const [showNewMessage, setShowNewMessage] = useState(false);
-  const [nbMessages, setNbMessages] = useState(0)
-  const [isSignin, setIsSignin] = useState(false)
-
+    const [gapiIsReady, setGapiIsReady] = useState(false)
+    const [selectedMail, setSelectedMail] = useState(null);
+    const [showNewMessage, setShowNewMessage] = useState(false);
+    const [nbMessages, setNbMessages] = useState(0)
+    const [isSignin, setIsSignin] = useState(false)
 
 
     useEffect(() => {
@@ -60,25 +59,26 @@ const App = () => {
         setShowNewMessage(true);
     };
 
-  const onClickEmailListingInput = () => {
-    setShowNewMessage(false);
-  };
+    const onClickEmailListingInput = () => {
+        setShowNewMessage(false);
+    };
 
-/*  if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>*/
+    /*  if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>*/
 
-  return (
-    <div className="App">
+    return (
+        <div className="App">
 
-      {
-        gapiIsReady &&
-        <>
-          <HeaderComponent showNewMessage={onClickNewMessage} nbMessages={nbMessages} />
-          <main className={"mainContainer"}>
-            <MailboxComponent nbMessages={nbMessages}/>
+            {
+                gapiIsReady &&
+                <>
+                    <HeaderComponent showNewMessage={onClickNewMessage} nbMessages={nbMessages}/>
+                    <main className={"mainContainer"}>
+                        <MailboxComponent nbMessages={nbMessages}/>
 
-                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput} setNbMessages={setNbMessages}/>
+                        <EmailListing selectedMail={setSelectedMail} setShowNewMessage={onClickEmailListingInput}
+                                      setNbMessages={setNbMessages}/>
                         {showNewMessage &&
-                        <NewMailForm/>
+                            <NewMailForm onClickNewMail={onClickEmailListingInput}/>
                         }
                         {!showNewMessage &&
                         <MailContent selectedMail={selectedMail}/>

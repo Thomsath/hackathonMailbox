@@ -9,7 +9,6 @@ export default class MailContent extends Component {
     }
 
     render() {
-        console.log(this.props.selectedMail)
         return (
             <div className={"mailContainer"}>
                 {this.props.selectedMail &&

@@ -12,7 +12,6 @@ export default class ListingFilter extends Component {
     }
 
     render() {
-        console.log(this.props.labels);
         return (
             <div className={"searchScroll"}>
                 <div className={"containerSearchItem"}>
