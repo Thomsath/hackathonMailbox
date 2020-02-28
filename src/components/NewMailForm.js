@@ -16,7 +16,7 @@ const NewMailForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        sendMessage(to, 'hackatong4@gmail', object, content);
+        sendMessage(to, 'hackatong4@gmail', object, content+ "\n \n- Envoyé avec TIDY");
     };
 
     const setCurrentContent = (e) => {
