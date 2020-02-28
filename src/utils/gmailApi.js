@@ -50,7 +50,7 @@ export const sendMessage = (to, from, subject, message) => {
         userId: 'me',
         resource
     });
-    request.execute(() => console.log('toto'));
+    request.execute(() => console.log());
 }
 
 const makeBody = (to, from, subject, message, threadId = false) => {

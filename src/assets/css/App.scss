@@ -44,7 +44,9 @@ body {
   background: #F7F8F9;
   flex: 1
 }
-
+.mailTitle {
+  margin: 0;
+}
 .mailContainer {
   flex: 2;
 }
@@ -92,6 +94,7 @@ ul.emailListing::-webkit-scrollbar {
 }
 .fromName {
   margin-top: 40px;
+  margin-bottom: 10px;
 }
 .snippet {
   color: #E7E7E7;
@@ -126,4 +129,7 @@ ul.emailListing::-webkit-scrollbar {
   width: 10px;
   border-radius: 50%;
   background: red;
+}
+.listingItemText {
+  flex: 1;
 }
