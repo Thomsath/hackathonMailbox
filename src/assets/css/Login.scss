@@ -5,12 +5,13 @@
   align-items: center;
   padding:0;
   margin: 0;
+  height: 100vh;
   background: transparent linear-gradient(180deg, #BEFFE6 0%, #F2F2F2 100%) 0% 0% no-repeat padding-box;
 
   .loginPageTitle{
     display: flex;
     justify-content: center;
-    padding: 60px 0;
+    padding: 20px 0;
     font-size: 120px;
     font-family: "Noah Bold";
     text-transform: uppercase;
@@ -83,8 +84,9 @@
   }
 
   .googleIcon{
-    padding-right: 20px;
     width: 30px;
-    height: 30px;
+    position: relative;
+    top: 6px;
+    left: -5px;
   }
 }

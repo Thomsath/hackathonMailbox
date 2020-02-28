@@ -11,6 +11,7 @@
     padding-bottom: 20px;
     width: 100%;
     padding-left: 0px;
+    height: 30vh;
 
     .navLinkItem:first-child {
       > .navLink {
@@ -52,14 +53,16 @@
     position: relative;
     overflow: hidden;
    > div {
-      top: 300px;
+    top: 15px;
     left: 15px;
     right: 15px;
-    bottom: 22px;
     position: absolute;
     background: red;
     text-align: center;
     color: white;
+    height: 21vh;
+    opacity: 0;
+    transition: 1s all ease;
     span {
       text-transform: uppercase;
     display: block;
@@ -70,9 +73,15 @@
     }
   }
 
+  .labelContainer {
+    overflow: scroll;
+  }
+  .labelContainer::-webkit-scrollbar {
+    display: none;
+  }
   .archiveContainer, .labelContainer{
     padding: 26px 0px 20px 40px;
-
+      height: 30vh;
     .archiveTitle, .labelTitle{
       text-transform: uppercase;
       color: #777777;
@@ -108,7 +117,20 @@
       div {
        background: green; 
       }
+      
    }
+   .labelLinkItem:nth-child(4) {
+    div {
+     background: purple; 
+    }
+    
+ }
+ .labelLinkItem:nth-child(5) {
+  div {
+   background: yellow; 
+  }
+  
+}
     }
   }
 

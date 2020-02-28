@@ -41,6 +41,7 @@ body {
 }
 
 .emailListing {
+  background: #F7F8F9;
   flex: 1
 }
 
@@ -51,6 +52,10 @@ ul.emailListing {
   padding-left: 0;
   height: 100vh;
   overflow: scroll;
+}
+
+ul.emailListing::-webkit-scrollbar {
+  display: none;
 }
 
 .mainContainer {
@@ -74,10 +79,20 @@ ul.emailListing {
   font-family: "Noah Bold";
 }
 .subjectLabel {
+  display: flex;
+    align-items: center;
   margin: O;
 }
 .round {
   height: 50px;
   width: 50px;
   background-color: red;
+}
+
+.red {
+  margin-right: 9px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: red;
 }

@@ -22,7 +22,7 @@ export default class LoginComponent extends Component {
                         <button className={"loginButton"}>Se connecter</button>
                     </div>
                 </div>
-                <ConnectBtn/>
+                <ConnectBtn setIsSignin={this.props.setIsSignin}/>
 
             </div>
 

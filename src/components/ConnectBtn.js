@@ -10,11 +10,21 @@ const SCOPES = 'https://mail.google.com/';
 const USER_ID = 'me';
 
 
-const ConnectBtn = () => {
+const ConnectBtn = ({ setIsSignin }) => {
+
+  const managerConnect = () => {
+    connect()
+    setTimeout(function () {
+      setIsSignin(true)
+    }, 3000);
+
+
+
+  }
   return (
     <div>
       <pre id="content"></pre>
-        <button id="authorize_button" onClick={() => connect()}><img src={google} className={"googleIcon"}></img> Connexion avec Google</button>
+      <button id="authorize_button" onClick={() => managerConnect()}><img src={google} className={"googleIcon"}></img> Connexion avec Google</button>
       {/*<button id="signout_button" onClick={() => disconnect()}>Sign Out</button>*/}
       {/*<h1>GAPI is loaded and ready to use.</h1>*/}
     </div>

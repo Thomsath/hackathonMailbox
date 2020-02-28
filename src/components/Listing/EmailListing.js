@@ -1,4 +1,4 @@
-import React, {Component, StyleSheet} from 'react';
+import React, { Component, StyleSheet } from 'react';
 import { listMessages } from './../../utils/gmailApi';
 import EmailListingItem from "./EmailListingItem";
 
@@ -9,9 +9,11 @@ export default class EmailListing extends Component {
         this.state = {
             messages: [],
             messagesContent: [],
-            message: null
+            message: null,
+            colors: ['red', 'blue', 'green']
         };
     }
+
 
     componentDidMount() {
         this.fetchMessages()
@@ -30,8 +32,8 @@ export default class EmailListing extends Component {
         this.setState([...oldState, messagesContent]);
     };
 
-    fetchMessages = async() => {
-       listMessages('', this.setMessage);
+    fetchMessages = async () => {
+        listMessages('', this.setMessage);
     };
 
     setMessageState = (message, subject, date, from) => {
@@ -47,7 +49,10 @@ export default class EmailListing extends Component {
             <ul className={"emailListing"}>
                 {this.state.messages &&
                     this.state.messages.map((value, index) => {
-                        return <EmailListingItem index={index} message={value} customClickEvent={this.setMessageState}/>
+                        return <EmailListingItem index={index}
+                         message={value} 
+                         customClickEvent={this.setMessageState}
+                         />
                     })
                 }
             </ul>

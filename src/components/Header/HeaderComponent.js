@@ -11,14 +11,14 @@ export default class HeaderComponent extends Component {
     constructor() {
         super();
         this.state = {
-            displayCard: 'none'
+            displayCard: 0
         };
     }
 
     displayCard() {
-        let displayStyle = (this.state.displayCard === 'none') ? 'block' : 'none'
+        let newOpacity = (this.state.displayCard === 1) ? 0 : 1;
         this.setState({
-            displayCard: displayStyle
+            displayCard: newOpacity
         })
     }
 
@@ -39,7 +39,7 @@ export default class HeaderComponent extends Component {
                             <img src={leaf} style={{ width: 30 }} />
                             <span className={"accountUsername"}>Votre emprunte carbone</span>
                             <button className={"consumeCarbone"} onClick={() => this.displayCard()}>{(parseInt(this.props.nbMessages) * 0.10).toFixed(1)} KG</button>
-                            <div className={'notifCardCarbone'} style={{ display: this.state.displayCard }}>
+                            <div className={'notifCardCarbone'} style={{ opacity: this.state.displayCard }}>
                                 <div>
                                     <span>
                                         <img src={card} /> <span>{this.props.nbMessages}</span> mails <span>non ouvert</span>

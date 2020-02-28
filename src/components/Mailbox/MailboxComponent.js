@@ -18,7 +18,8 @@ export default class MailboxComponent extends Component {
     constructor() {
         super();
         this.state = {
-            labels: null
+            labels: null,
+            styleForCard:  {}
         }
     }
     componentDidMount() {
@@ -34,11 +35,13 @@ export default class MailboxComponent extends Component {
             labels
         });
     };
-    displayNotif() {
+    displayNotif(opacity) {
         this.setState({
-            displayCard: true
+            styleForCard: {opacity: opacity}
         })
     }
+
+
 
 
 
@@ -70,7 +73,7 @@ export default class MailboxComponent extends Component {
                 <div className={"archiveContainer"}>
                     <span className={"archiveTitle"}>Archives</span>
                     <ul className={"archiveLinkContainer"}>
-                        <li className={"archiveLinkItem"} onClick={() => this.displayNotif()}>Mails importants</li>
+                        <li className={"archiveLinkItem"} onClick={() => this.displayNotif(1)}>Mails importants</li>
                         <li className={"archiveLinkItem"}>Comptabilité</li>
                         <li className={"archiveLinkItem"}>Ressources humaines</li>
 
@@ -80,10 +83,10 @@ export default class MailboxComponent extends Component {
                 <span className={"navHr"}></span>
 
                 <div className={"labelContainer"}>
-                    <div>
+                    <div style={this.state.styleForCard}>
                         <span>Attention</span>
                         38 mails seront supprimer lors de votre prochaine déconnexion
-                        <button className={'btnNotif'}>Vérifier ces mails</button>
+                        <button className={'btnNotif'}onClick={() => this.displayNotif(0)}>Vérifier ces mails</button>
                     </div>
                     <span className={"labelTitle"}>Labels</span>
                     <ul className={"labelLinkContainer"}>

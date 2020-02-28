@@ -20,6 +20,8 @@ const App = () => {
   const [selectedMail, setSelectedMail] = useState(null);
   const [showNewMessage, setShowNewMessage] = useState(false);
   const [nbMessages, setNbMessages] = useState(0)
+  const [isSignin, setIsSignin] = useState(false)
+
 
 
   useEffect(() => {
@@ -59,9 +61,11 @@ const App = () => {
     setShowNewMessage(false);
   };
 
+  if (!isSignin) return <LoginComponent setIsSignin={setIsSignin}/>
+
   return (
     <div className="App">
-      {/* <LoginComponent /> */}
+      
       {
         gapiIsReady &&
         <>

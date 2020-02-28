@@ -49,7 +49,7 @@ export default class EmailListingItem extends Component {
                 {this.state.subject &&
                     <>
                     <p className={"fromLabel"}> {this.showFrom(this.state.from)}</p>
-                    <h3 className={"bold subjectLabel"}>{this.state.subject}</h3></>
+                   <h3 className={"bold subjectLabel"}> <div className={'red'}></div>{this.state.subject}</h3></>
                 }
                 <p>{this.props.message.snippet}</p>
             </li>
