@@ -85,7 +85,7 @@ export default class MailboxComponent extends Component {
                 <div className={"labelContainer"}>
                     <div style={this.state.styleForCard}>
                         <span>Attention</span>
-                        38 mails seront supprimer lors de votre prochaine déconnexion
+                        38 mails seront supprimés lors de votre prochaine déconnexion
                         <button className={'btnNotif'}onClick={() => this.displayNotif(0)}>Vérifier ces mails</button>
                     </div>
                     <span className={"labelTitle"}>Labels</span>
