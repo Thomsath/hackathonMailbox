@@ -1,7 +1,5 @@
 import React, {Component, StyleSheet} from 'react';
 import {listLabels, listMessages} from './../../utils/gmailApi';
-import React, { Component, StyleSheet } from 'react';
-import { listMessages } from './../../utils/gmailApi';
 import EmailListingItem from "./EmailListingItem";
 import ListingFilter from "./ListingFilter";
 
@@ -72,7 +70,6 @@ export default class EmailListing extends Component {
 
     render() {
         return (
-            <>
                 <ul className={"emailListing"}>
                     {this.state.labels &&
                     <ListingFilter labels={this.state.labels}/>
