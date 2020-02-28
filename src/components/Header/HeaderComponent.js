@@ -37,7 +37,7 @@ export default class HeaderComponent extends Component {
                         <button className={"newMailButton"} onClick={this.props.showNewMessage}>Nouveau</button>
                         <div className={"accountInfo"}>
                             <img src={leaf} style={{ width: 30 }} />
-                            <span className={"accountUsername"}>Votre emprunte carbone</span>
+                            <span className={"accountUsername"}>Votre empreinte carbone</span>
                             <button className={"consumeCarbone"} onClick={() => this.displayCard()}>{(parseInt(this.props.nbMessages) * 0.10).toFixed(1)} KG</button>
                             <div className={'notifCardCarbone'} style={{ opacity: this.state.displayCard }}>
                                 <div>
