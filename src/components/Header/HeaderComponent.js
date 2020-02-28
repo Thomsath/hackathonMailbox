@@ -34,7 +34,7 @@ export default class HeaderComponent extends Component {
                         <input type={"text"} className={"searchBar"} placeholder={"Search"} />
                     </div>
                     <div className={"accountBar"}>
-                        <button className={"newMailButton"}>Nouveau</button>
+                        <button className={"newMailButton"} onClick={this.props.showNewMessage}>Nouveau</button>
                         <div className={"accountInfo"}>
                             <img src={leaf} style={{ width: 30 }} />
                             <span className={"accountUsername"}>Votre emprunte carbone</span>
